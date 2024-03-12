@@ -9,13 +9,13 @@ import org.springframework.stereotype.Controller;
 public class BookController {
 
     @QueryMapping
-    public Book bookById(@Argument String id){
-
+    public Object bookById(@Argument String id){
+//        throw new RuntimeException(" not found")
      return Book.getbyId(id);
     }
 
     @SchemaMapping
     public Author author(Book book){
-        return Author.getById(book.getAuthor());
+        return Author.getById(book.getId());
     }
 }

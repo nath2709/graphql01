@@ -1,5 +1,5 @@
 type Query {
- bookById(id:ID):Book
+ bookById(id:ID):BookResponse
 }
 
 type Book{
@@ -14,3 +14,8 @@ type Author{
     firstName: String
     lastName:  String
 }
+type BookError{
+    message:String
+}
+
+union BookResponse= Book| BookError
